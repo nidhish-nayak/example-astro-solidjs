@@ -1,0 +1,15 @@
+---
+export interface Props {
+    width: number;
+    height: number;
+}
+
+const { width, height } = Astro.props;
+---
+
+<img src="/public/favicon.svg" width=`${width}px` height=`${height}px` />
+<style>
+    img {
+        margin: 1em;
+    }
+</style>

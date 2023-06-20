@@ -1,3 +1,7 @@
+---
+import Logo from "../components/Logo.astro";
+---
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,14 +10,16 @@
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>Navbar</title>
+        <title>Astro + Solid JS</title>
     </head>
     <body>
-        <nav class="crumbs">
-            <ol>
-                <li>Home</li>
-                <li>About</li>
-            </ol>
+        <nav>
+            <Logo width={45} height={45} />
+            <ul class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/projects" class="nav-link">Projects</a>
+            </ul>
         </nav>
         <section>
             <slot />
@@ -30,6 +36,11 @@
             white 60%
         );
     }
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
     html {
         font-family: system-ui, sans-serif;
         background-color: #f6f6f6;
@@ -37,5 +48,32 @@
     code {
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+    nav {
+        position: sticky;
+        top: 0;
+        opacity: 0.95;
+        z-index: 1;
+        background-color: white;
+        padding: 0 7.5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+    .nav-link {
+        padding: 0.5em 1em;
+        margin: 0 1em;
+        border-radius: 0.35rem;
+        background-color: white;
+        text-decoration: none;
+        list-style: none;
+        color: black;
+    }
+    .nav-link:hover {
+        background-color: gainsboro;
     }
 </style>
